@@ -83,7 +83,7 @@ const PAGES = {
 
 export default function Home() {
   const [page, setPage] = useState('overview')
-  const { evals, ramos, loading, error, synced, reload, rColor } = useData()
+  const { evals, ramos, ramosAll, ramosActivos, toggleRamo, seleccionarTodos, loading, error, synced, reload, rColor } = useData()
 
   const hoy  = new Date(); hoy.setHours(0,0,0,0)
   const en14 = new Date(hoy); en14.setDate(hoy.getDate()+14)
@@ -98,8 +98,7 @@ export default function Home() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#FAFAF8' }}>
-      <Sidebar active={page} onNav={handleNav} alertCount={alertCount} synced={synced} />
-
+      <Sidebar active={page} onNav={handleNav} alertCount={alertCount} synced={synced} ramosAll={ramosAll} ramosActivos={ramosActivos} toggleRamo={toggleRamo} seleccionarTodos={seleccionarTodos} />
       <main style={{ flex: 1, minWidth: 0, padding: '36px 40px', overflowY: 'auto' }}>
         <div style={{ maxWidth: '1100px', width: '100%' }}>
 

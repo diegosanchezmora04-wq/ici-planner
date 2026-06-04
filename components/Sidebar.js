@@ -5,6 +5,7 @@ const NAV = [
   { id: 'evaluaciones', emoji: '☰', label: 'Evaluaciones'   },
   { id: 'ramos',        emoji: '⊟', label: 'Por ramo'       },
   { id: 'alertas',      emoji: '◎', label: 'Alertas'        },
+  { id: 'documentos',   emoji: '📄', label: 'Documentos'     },
 ]
 
 export function Sidebar({ active, onNav, alertCount, synced, ramosAll, ramosActivos, toggleRamo, seleccionarTodos }) {

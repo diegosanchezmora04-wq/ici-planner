@@ -7,6 +7,7 @@ import { EvalList } from '@/components/EvalList'
 import { RamoGrid } from '@/components/RamoGrid'
 import { Alertas } from '@/components/Alertas'
 import { getWeekN, daysTo, WEEKS, isPast, fDate } from '@/lib/utils'
+import { Documentos } from '@/components/Documentos'
 
 function Metrics({ evals, ramos }) {
   const hoy = new Date(); hoy.setHours(0,0,0,0)
@@ -79,11 +80,12 @@ const PAGES = {
   evaluaciones: { title: 'Evaluaciones',    sub: 'Todas las evaluaciones con contenidos registrados'    },
   ramos:        { title: 'Por ramo',        sub: 'Carga y evaluaciones desglosadas por asignatura'      },
   alertas:      { title: 'Alertas',         sub: 'Evaluaciones en los próximos 14 días'                 },
+  documentos:   { title: 'Documentos',      sub: 'Pautas, certámenes anteriores y material de estudio'  },
 }
 
 export default function Home() {
   const [page, setPage] = useState('overview')
-  const { evals, ramos, ramosAll, ramosActivos, toggleRamo, seleccionarTodos, loading, error, synced, reload, rColor } = useData()
+  const { evals, docs, ramos, ramosAll, ramosActivos, toggleRamo, seleccionarTodos, loading, error, synced, reload, rColor } = useData()
 
   const hoy  = new Date(); hoy.setHours(0,0,0,0)
   const en14 = new Date(hoy); en14.setDate(hoy.getDate()+14)
@@ -158,6 +160,7 @@ export default function Home() {
               {page === 'evaluaciones' && <EvalList evals={evals} rColor={rColor} />}
               {page === 'ramos'        && <RamoGrid evals={evals} ramos={ramos} rColor={rColor} />}
               {page === 'alertas'      && <Alertas evals={evals} />}
+              {page === 'documentos' && <Documentos docs={docs} ramos={ramos} rColor={rColor} />}
             </>
           )}
         </div>

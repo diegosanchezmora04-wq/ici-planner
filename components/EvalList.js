@@ -19,11 +19,11 @@ function EvalItem({ e, rColor }) {
       gap: '14px',
       alignItems: 'start',
       padding: '14px 20px',
-      borderBottom: '1px solid #F3F3F1',
-      transition: 'background 0.1s',
+      borderBottom: '1px solid #2A2A2A',
+      transition: 'background 120ms ease-out',
       cursor: 'default',
     }}
-      onMouseEnter={e => e.currentTarget.style.background = '#FAFAF8'}
+      onMouseEnter={e => e.currentTarget.style.background = '#222222'}
       onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
     >
       <div style={{
@@ -35,17 +35,17 @@ function EvalItem({ e, rColor }) {
         <div style={{ fontSize: '13px', fontWeight: '600', color: rColor(e.ramo), marginBottom: '2px' }}>
           {e.ramo}
         </div>
-        <div style={{ fontSize: '12px', color: '#9B9A97' }}>
+        <div style={{ fontSize: '12px', color: '#888888' }}>
           {e.tipo}{e.peso ? ' · ' + e.peso + '%' : ''}
         </div>
         {e.cont && (
-          <div style={{ fontSize: '12px', color: '#6B6860', marginTop: '5px', fontStyle: 'italic', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '12px', color: '#888888', marginTop: '5px', fontStyle: 'italic', lineHeight: 1.5 }}>
             {e.cont}
           </div>
         )}
       </div>
       <div style={{ textAlign: 'right', flexShrink: 0 }}>
-        <div style={{ fontSize: '12px', fontFamily: 'monospace', color: '#9B9A97' }}>{fDate(e.fecha)}</div>
+        <div style={{ fontSize: '12px', fontFamily: 'monospace', color: '#888888' }}>{fDate(e.fecha)}</div>
         <DaysBadge days={days} />
       </div>
     </div>
@@ -70,7 +70,7 @@ export function EvalList({ evals, rColor }) {
   return (
     <Card>
       {/* Tabs */}
-      <div style={{ display: 'flex', borderBottom: '1px solid #EBEBEA', padding: '0 4px' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid #2A2A2A', padding: '0 4px' }}>
         {TABS.map(t => (
           <button
             key={t.id}
@@ -79,13 +79,13 @@ export function EvalList({ evals, rColor }) {
               padding: '12px 16px',
               fontSize: '13px',
               fontWeight: tab === t.id ? '500' : '400',
-              color: tab === t.id ? '#1A1916' : '#9B9A97',
+              color: tab === t.id ? '#F0F0F0' : '#888888',
               border: 'none',
-              borderBottom: tab === t.id ? '2px solid #1A1916' : '2px solid transparent',
+              borderBottom: tab === t.id ? '2px solid #F0F0F0' : '2px solid transparent',
               background: 'transparent',
               cursor: 'pointer',
               marginBottom: '-1px',
-              transition: 'all 0.1s',
+              transition: 'color 120ms ease-out, border-color 120ms ease-out',
             }}
           >
             {t.label}
@@ -93,7 +93,7 @@ export function EvalList({ evals, rColor }) {
         ))}
       </div>
       {current.length === 0 ? (
-        <div style={{ padding: '48px', textAlign: 'center', color: '#9B9A97', fontSize: '13px' }}>
+        <div style={{ padding: '48px', textAlign: 'center', color: '#888888', fontSize: '13px' }}>
           Sin evaluaciones en esta vista.
         </div>
       ) : (

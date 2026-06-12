@@ -18,6 +18,8 @@ export default function RootLayout({ children }) {
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
         height: '100%',
         margin: 0,
+        background: '#0F0F0F',
+        color: '#F0F0F0',
       }}>
         {children}
       </body>

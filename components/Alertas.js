@@ -14,7 +14,7 @@ export function Alertas({ evals }) {
 
   if (semanas.length===0) return (
     <Card>
-      <div style={{ padding: '48px', textAlign: 'center', fontSize: '13px', color: '#9B9A97' }}>
+      <div style={{ padding: '48px', textAlign: 'center', fontSize: '13px', color: '#888888' }}>
         Sin evaluaciones en los próximos 14 días. ✓
       </div>
     </Card>
@@ -28,10 +28,10 @@ export function Alertas({ evals }) {
         return (
           <div key={n} style={{
             display: 'flex', alignItems: 'flex-start', gap: '14px',
-            padding: '16px 20px', borderBottom: '1px solid #F3F3F1',
-            transition: 'background 0.1s',
+            padding: '16px 20px', borderBottom: '1px solid #2A2A2A',
+            transition: 'background 120ms ease-out',
           }}
-            onMouseEnter={e=>e.currentTarget.style.background='#FAFAF8'}
+            onMouseEnter={e=>e.currentTarget.style.background='#222222'}
             onMouseLeave={e=>e.currentTarget.style.background='transparent'}
           >
             <div style={{
@@ -44,11 +44,11 @@ export function Alertas({ evals }) {
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: '13px', fontWeight: '600', marginBottom: '4px' }}>
                 Semana {n} — {fRango(n)}
-                <span style={{ fontWeight: '400', color: '#9B9A97' }}> · {evs.length} evaluación(es)</span>
+                <span style={{ fontWeight: '400', color: '#888888' }}> · {evs.length} evaluación(es)</span>
               </div>
               {evs.map((e,i)=>(
-                <div key={i} style={{ fontSize: '12px', color: '#6B6860', lineHeight: 1.7 }}>
-                  <span style={{ fontWeight: '600', color: '#1A1916' }}>{e.ramo}</span>
+                <div key={i} style={{ fontSize: '12px', color: '#888888', lineHeight: 1.7 }}>
+                  <span style={{ fontWeight: '600', color: '#F0F0F0' }}>{e.ramo}</span>
                   {' — '}{e.tipo}
                   {e.cont ? ': ' + e.cont.slice(0,70) + '…' : ' · ' + fDateLong(e.fecha)}
                 </div>
